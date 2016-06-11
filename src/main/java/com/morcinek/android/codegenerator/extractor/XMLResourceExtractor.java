@@ -1,24 +1,30 @@
 package com.morcinek.android.codegenerator.extractor;
 
-import com.morcinek.android.codegenerator.extractor.string.ResourceIdExtractor;
-import com.morcinek.android.codegenerator.extractor.string.ResourceTypeExtractor;
-import com.morcinek.android.codegenerator.extractor.string.StringExtractor;
-import com.morcinek.android.codegenerator.extractor.model.Resource;
-import com.morcinek.android.codegenerator.extractor.model.ResourceId;
-import com.morcinek.android.codegenerator.extractor.model.ResourceType;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.xpath.*;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
+import com.morcinek.android.codegenerator.extractor.model.Resource;
+import com.morcinek.android.codegenerator.extractor.model.ResourceId;
+import com.morcinek.android.codegenerator.extractor.model.ResourceType;
+import com.morcinek.android.codegenerator.extractor.string.ResourceIdExtractor;
+import com.morcinek.android.codegenerator.extractor.string.ResourceTypeExtractor;
+import com.morcinek.android.codegenerator.extractor.string.StringExtractor;
 
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.

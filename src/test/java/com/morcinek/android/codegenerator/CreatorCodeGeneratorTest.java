@@ -37,15 +37,8 @@ public class CreatorCodeGeneratorTest {
 
     @Test
     public void viewPagerProduceCodeTest() throws Exception {
-        String producedCode = produceCodeFromFilePath("codegeneration/layouts/item_circle_qb_question.xml");
+        String producedCode = produceCodeFromFilePath("codegeneration/layouts/circle_qb_question_creator.xml");
         System.out.println(producedCode);
-        //        String templateForName = templatesProvider.provideTemplateForName
-        // ("results/activities/ViewPagerActivity.java");
-        //        System.out.println("-------------------");
-        //        System.out.println(templateForName);
-        //        // then
-        //        Assertions.assertThat(producedCode).isNotNull().isEqualTo(
-        //                templateForName);
     }
 
     private String produceCodeFromFilePath(String filePath) throws ParserConfigurationException, SAXException,

@@ -1,16 +1,16 @@
 package com.morcinek.android.codegenerator.codegeneration;
 
+import java.util.List;
+import java.util.Map;
+
 import com.google.common.collect.Lists;
 import com.morcinek.android.codegenerator.codegeneration.builders.BuildersCollection;
 import com.morcinek.android.codegenerator.codegeneration.builders.CodeBuilder;
-import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvidersFactory;
 import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvider;
+import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvidersFactory;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplateManager;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
@@ -37,7 +37,7 @@ public class TemplateCodeGenerator {
             templateManager.addTemplateValue(key, builderMap.get(key).builtString());
         }
 
-        return templateManager.getResult();
+        return templateManager.getOriginalResult();
     }
 
     private List<ResourceProvider> getResourceProviders(List<Resource> resources) {
