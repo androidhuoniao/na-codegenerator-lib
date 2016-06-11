@@ -1,5 +1,15 @@
 package com.morcinek.android.codegenerator;
 
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPathExpressionException;
+
+import org.fest.assertions.Assertions;
+import org.junit.Before;
+import org.junit.Test;
+import org.xml.sax.SAXException;
+
 import com.morcinek.android.codegenerator.codegeneration.TemplateCodeGenerator;
 import com.morcinek.android.codegenerator.codegeneration.providers.factories.ActivityResourceProvidersFactory;
 import com.morcinek.android.codegenerator.codegeneration.templates.ResourceTemplatesProvider;
@@ -7,14 +17,6 @@ import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProv
 import com.morcinek.android.codegenerator.extractor.XMLResourceExtractor;
 import com.morcinek.android.codegenerator.extractor.string.FileNameExtractor;
 import com.morcinek.android.codegenerator.util.InputStreamProvider;
-import org.fest.assertions.Assertions;
-import org.junit.Before;
-import org.junit.Test;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.xpath.XPathExpressionException;
-import java.io.IOException;
 
 public class ActivityCodeGeneratorTest {
 
@@ -34,9 +36,13 @@ public class ActivityCodeGeneratorTest {
         // given
         // when
         String producedCode = produceCodeFromFilePath("codegeneration/layouts/view_pager.xml");
-
+        System.out.println(producedCode);
+        String templateForName = templatesProvider.provideTemplateForName("results/activities/ViewPagerActivity.java");
+        System.out.println("-------------------");
+        System.out.println(templateForName);
         // then
-        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/activities/ViewPagerActivity.java"));
+        Assertions.assertThat(producedCode).isNotNull().isEqualTo(
+                templateForName);
     }
 
     @Test
